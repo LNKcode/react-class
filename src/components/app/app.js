@@ -5,7 +5,6 @@ import SearchPanel from '../search-panel/search-panel';
 import AppFilter from '../app-filter/app-filter';
 import EmployeesList from '../employees-list/employees-list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form';
-// import { Component } from 'react';
 
 import './app.css';
 
@@ -14,9 +13,9 @@ class App extends Component {
     super(props);
     this.state = {
       data: [
-        { name: "Maria P.", salary: 1000, increase: false, id: 1 },
-        { name: "Igor A.", salary: 800, increase: true, id: 2 },
-        { name: "Eva E.", salary: 500, increase: false, id: 3 }
+        { name: "Maria P.", salary: 1000, increase: false, rise: true, id: 1 },
+        { name: "Igor A.", salary: 800, increase: true, rise: false, id: 2 },
+        { name: "Eva E.", salary: 500, increase: false, rise: false, id: 3 }
       ]
     }
     this.maxId = 4
@@ -24,12 +23,6 @@ class App extends Component {
 
   deleteItem = (id) => {
     this.setState(({ data }) => {
-      // 1 способ копирование копирования масива и удаления индекса
-      // Находим индекс элемента в массиве data, у которого id совпадает с переданным
-      // const index = data.findIndex(elem => elem.id === id);
-      // const before = data.slice(0, index);
-      // const after = data.slice(index + 1);
-      // const newArr = [...before, ...after]
       return {
         data: data.filter(item => item.id !== id)
       }
@@ -37,9 +30,14 @@ class App extends Component {
   }
 
   addItem = (name, salary) => {
+  const trimmedName = name.trim();
+  const trimmedSalary = salary.toString().trim();
+
+  if (trimmedName === '' || trimmedSalary === '') return;
     const newItem = {
       name,
       salary,
+      rise: false,
       increase: false,
       id: this.maxId++
     }
@@ -51,10 +49,29 @@ class App extends Component {
     });
   }
 
+  onToggleProp = (id, prop) => {
+
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return {...item, [prop]: !item[prop]}
+        }
+        return item;
+      })
+    }))
+  }
+
+
   render() {
+
+  const employees = this.state.data.length;
+  const increased = this.state.data.filter(item => item.increase).length;
+
     return (
       <div className="app">
-        <AppInfo />
+        <AppInfo 
+        employees={employees}
+        increased={increased}/>
 
         <div className="search-panel">
           <SearchPanel />
@@ -62,7 +79,8 @@ class App extends Component {
         </div>
 
         <EmployeesList data={this.state.data}
-          onDelete={this.deleteItem} />
+          onDelete={this.deleteItem}
+          onToggleProp={this.onToggleProp} />
         <EmployeesAddForm
           onAdd={this.addItem} />
       </div>
@@ -72,48 +90,3 @@ class App extends Component {
 
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class WhyAmI extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     const {name, surname, link} = this.props
-//     return (
-//       <div>
-//         <h1>
-//           My name is {name}. surname{surname}
-//         </h1>
-//         <a href={link}>
-//           My profile
-//         </a>
-//       </div>
-//     )
-//   }
-// }
-
-// function App() {
-//   return (
-//     <div className='App'>
-//       <WhyAmI name={'John'} surname="Smith" link="vk.com" />
-//       <WhyAmI name={'Alex'} surname="Rose" link="Facebook.com" />
-
-//     </div>
-//   )
-// }
