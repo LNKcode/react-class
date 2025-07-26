@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 👨‍💼 Employees App — Учёт сотрудников на классах в React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Описание проекта
 
-## Available Scripts
+Этот проект — это простое тренировочное приложение на React, в котором реализован учёт сотрудников компании.
 
-In the project directory, you can run:
+Я **осознанно использовал классовые компоненты**, чтобы глубже разобраться в "старом" подходе к React, который до сих пор используется в реальных проектах и может встретиться на собеседованиях.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎯 Основной функционал
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 📋 Список сотрудников с их зарплатами
+- ➕ Добавление новых сотрудников
+- ❌ Удаление сотрудников
+- 🔍 Поиск сотрудников по имени
+- 🧰 Фильтрация по определённым критериям:
+  - Сотрудники, у которых включён флаг "На повышение"
+  - Сотрудники с зарплатой больше 1000$
+- ⭐ Возможность пометить сотрудника как "достойного премии"
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Что я тренировал
 
-### `npm run build`
+- Работа с **классовыми компонентами**
+- Использование и изменение `state`
+- Передача данных через `props`
+- Написание собственных методов для компонентов
+- Использование `setState` с колбэком и функцией
+- Управление формами и вводом данных
+- Работа с **иммутабельностью** при изменении массивов объектов
+- Добавление уникальных `key` при работе с `.map()`
+- Условное отображение классов (`className`) и логика для UI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 Почему классы, а не функции?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Я специально выбрал **классовый подход** в React, чтобы научиться:
+> - понимать старый код
+> - легче читать проекты других разработчиков
+> - быть готовым к собеседованиям, где могут попасться такие примеры
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💻 Технологии
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React (классовые компоненты)
+- JavaScript (ES6+)
+- CSS / Bootstrap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📸 Скриншот
 
-## Learn More
+*(вставь сюда картинку, если хочешь)*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Запуск проекта
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install
+npm start
